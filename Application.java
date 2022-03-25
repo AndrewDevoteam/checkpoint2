@@ -4,7 +4,6 @@ public class Application {
     public static void main(String[] args) {
         String carMatrix[][] = new String[6][4];
         Scanner keyboard = new Scanner(System.in);
-
         carMatrix[0][0] = "GM";
         carMatrix[0][1] = "Suburban";
         carMatrix[0][2] = "Malibu";
@@ -29,7 +28,6 @@ public class Application {
         carMatrix[5][1] = "206";
         carMatrix[5][2] = "208";
         carMatrix[5][3] = "2008";
-        int selectedValue = 0;
         int continueOrNot = 1;
 
 
@@ -39,7 +37,7 @@ public class Application {
                 System.out.println((i + 1) + " - " + carMatrix[i][0]);
             }
             System.out.println("0 - Exit");
-            selectedValue = keyboard.nextInt();
+            int selectedValue = keyboard.nextInt();
             switch (selectedValue) {
                 case 1, 2, 3, 4, 5, 6 -> {
                     System.out.println("Available Cars");
