@@ -18,6 +18,7 @@ public class Vehicle {
         System.out.println("Color " + color);
         System.out.println("Year " + year);
         System.out.println("AutoMaker " + autoMaker.getName());
+        System.out.println("------------------");
     }
 
     public String getModel() {
