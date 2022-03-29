@@ -1,4 +1,4 @@
-package test;
+package main;
 
 import domain.AutoMaker;
 import domain.Vehicle;
@@ -28,7 +28,8 @@ public class ApplicationClass {
                 case 1 -> {
                     System.out.println("Please type in a manufacturer name");
                     String manufacturerName = scanner.next();
-                    vehicleService.searchByManufacturer(manufacturerName);
+                    vehicleService.searchByAutomaker(manufacturerName);
+
                 }
                 case 2 -> {
                     System.out.println("Please type in a vehicle model");
@@ -51,8 +52,10 @@ public class ApplicationClass {
                 case 4 -> {
                     System.out.println("Please type in the name of the vehicle to update");
                     String selectedVehicle = scanner.next();
+                    boolean result = false;
                     for (Vehicle vehicle : vehicleRepository.getVehicleList()) {
                         if (vehicle.getModel().equalsIgnoreCase(selectedVehicle)) {
+                            result = true;
                             System.out.println("Please type in the updated vehicle name ");
                             String updatedName = scanner.next();
                             System.out.println("Please type in the updated year of Production ");
@@ -66,12 +69,15 @@ public class ApplicationClass {
                             vehicleService.updateVehicle(vehicle, newVehicle);
                         }
                     }
+                    if (!result){
+                        System.out.println("Invalid option");
+                    }
                 }
                 case 5 -> {
                     System.out.println("Please type in the name of the vehicle you want to delete");
                     String vehicleName = scanner.next();
                     vehicleService.deleteVehicleByModel(vehicleName);
-                    System.out.println("Vehicle was successfully deleted");
+
                 }
                 default -> System.out.println("Invalid input");
             }
